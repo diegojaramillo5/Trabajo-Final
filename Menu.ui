@@ -81,7 +81,7 @@
     <rect>
      <x>40</x>
      <y>90</y>
-     <width>201</width>
+     <width>205</width>
      <height>171</height>
     </rect>
    </property>
@@ -99,12 +99,12 @@
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>PROCESO DE IMAGENES</string>
+       <string>PROCESO DE IMÁGENES DICOM</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="boton_volver">
+     <widget class="QPushButton" name="boton_nifti">
       <property name="font">
        <font>
         <family>Arial Black</family>
@@ -116,7 +116,7 @@
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>VOLVER</string>
+       <string>PROCESO IMÁGENES NIFTI</string>
       </property>
      </widget>
     </item>

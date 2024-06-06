@@ -1,16 +1,26 @@
 from Modelo import Dicom, Imagen3D
-from Vista import VentanaPrincipal
+from Vista import VentanaPrincipal, VentanaRutaDCM
 from PyQt5.QtWidgets import QApplication
 import sys
 
 class Controlador(object):
-    def __init__(self, vista, dicom, imagen3D):
+    def __init__(self, vista, vistaRuta, dicom, imagen3D):
         self.__mi_vista = vista
+        self.__mi_vistaRuta = vistaRuta
         self.__mi_dicom = dicom
         self.__mi_imagen3D = imagen3D
+        
+    def cargarDCM(self, ruta): 
+        return self.__mi_dicom.cargarArchivoDCM(ruta)
 
-    def cargarArchivoDicom(self, data):
-        self.__mi_dicom.cargar_archivo_dcm(data)
+    def asignarInfo(self,archivo):
+        return self.__mi_dicom.asignarInformacion(archivo)
+    
+    def convertir(self, dicom):
+        self.__mi_dicom.convertirDCM(dicom)
+
+    def visualizarNii(self):
+        return self.__mi_dicom.visualizarNifti()
 
 class Coordinador(object):
     def __init__(self, usuario, contrasena):
@@ -22,10 +32,12 @@ class Coordinador(object):
 def main():
     app = QApplication(sys.argv)
     vista = VentanaPrincipal()
+    vistaRuta = VentanaRutaDCM()
     dicom = Dicom()
     imagen = Imagen3D()
-    controlador = Controlador(vista, dicom, imagen)
+    controlador = Controlador(vista, vistaRuta, dicom, imagen)
     vista.asignarControlador(controlador)
+    vistaRuta.asignarControlador(controlador)
     vista.show()
     sys.exit(app.exec_())
 

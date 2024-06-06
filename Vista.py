@@ -63,12 +63,17 @@ class VentanaMenu(QDialog):
         self.__mi_controlador = c
 
     def setup(self):
-        self.boton_imagenes.clicked.connect(self.rutaImagenes)
-        self.boton_volver.clicked.connect(self.volverBoton)
+        self.boton_imagenes.clicked.connect(self.rutaImagenesDCM)
+        self.boton_nifti.clicked.connect(self.rutaImagenesNifti)
         self.boton_salir.clicked.connect(lambda:self.close())
 
-    def rutaImagenes(self):
-        ventMenu =  VentanaRuta(self)
+    def rutaImagenesDCM(self):
+        ventMenu =  VentanaRutaDCM(self)
+        ventMenu.show()
+        self.hide()
+
+    def rutaImagenesNifti(self):
+        ventMenu =  VentanaRutaNifti(self)
         ventMenu.show()
         self.hide()
 
@@ -76,10 +81,42 @@ class VentanaMenu(QDialog):
         self.__ventana_padre.show()
         self.hide()
 
-class VentanaRuta(QDialog):
+class VentanaRutaDCM(QDialog):
     def __init__(self,parent=None):
         super().__init__(parent)
         loadUi("Proceso_Imagenes.ui",self)
+        self.__ventana_padre=parent
+        self.setup()
+
+    def asignarControlador(self,c):
+        self.__mi_controlador = c
+
+    def setup(self):
+        self.examinar.clicked.connect(self.rutaImagenDCM)
+        self.boton_volver.clicked.connect(self.volverBoton)
+        #self.layout.addWidget(self.visualizarImagen)
+
+    def rutaImagenDCM(self):
+        self.ruta = self.nombre_dcm.text()
+        self.cargo = self.__mi_controlador.cargarDCM(self.ruta)
+        print(self.cargo)
+        self.asigno = self.__mi_controlador.asignarInfo(self.cargo)
+        self.convierto = self.__mi_controlador.convertir(self.ruta)
+        ventImgDCM = VentanaImagenDCM(self)
+        ventImgDCM.show()
+        self.hide()
+
+    def visualizarImagen(self):
+        self.visualizo = self.__mi_controlador.visualizarNii()
+    
+    def volverBoton(self):
+        self.__ventana_padre.show()
+        self.hide()
+
+class VentanaRutaNifti(QDialog):
+    def __init__(self,parent=None):
+        super().__init__(parent)
+        loadUi("Proceso_Imagenes_Nifti.ui",self)
         self.__ventana_padre=parent
         self.setup()
 
@@ -100,9 +137,15 @@ class VentanaRuta(QDialog):
 class VentanaImagenDCM(QDialog):
     def __init__(self,parent=None):
         super().__init__(parent)
-        loadUi("NOMBRE VENTANA QUE MUESTRA EL 3D DICOM",self)
+        loadUi("visualizar_info_3d.ui",self)
         self.__ventana_padre=parent
         self.setup()
+
+    def asignarControlador(self,c):
+        self.__mi_controlador = c
+
+    def setup(self):
+        pass
 
 class VentanaImagenNifti(QDialog):
     def __init__(self,parent=None):
@@ -110,6 +153,13 @@ class VentanaImagenNifti(QDialog):
         loadUi("NOMBRE VENTANA QUE MUESTRA EL 3D Nifti",self)
         self.__ventana_padre=parent
         self.setup()
+
+    def asignarControlador(self,c):
+        self.__mi_controlador = c
+
+
+
+
 
 
 

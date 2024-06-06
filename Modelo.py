@@ -21,12 +21,12 @@ class Dicom():
       else:
         return False
 
-  def asignarInformacion(self):
-    self.__nombre = self.leer[0x0010, 0x0010].value
-    self.__iD = self.leer[0x0010, 0x0020].value
-    self.__fecha = self.leer[0x0008,0x0020].value
-    self.__modalidad = self.leer[0x0008,0x0060].value
-    self.__descripcion = self.leer[0x0008,0x1030].value
+  def asignarInformacion(self, archivo):
+    self.__nombre = archivo[0x0010, 0x0010].value
+    self.__iD = archivo[0x0010, 0x0020].value
+    self.__fecha = archivo[0x0008,0x0020].value
+    self.__modalidad = archivo[0x0008,0x0060].value
+    self.__descripcion = archivo[0x0008,0x1030].value
 
     self.lista = [self.__nombre, self.__iD, self.__fecha, self.__modalidad, self.__descripcion]
     return self.lista
