@@ -26,7 +26,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>Picture_Health-removebg-preview.png</pixmap>
+    <pixmap>C:/Users/Est01/Downloads/Trabajo-Final/Picture_Health-removebg-preview.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -45,7 +45,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>IMAGINEX-removebg-preview.png</pixmap>
+    <pixmap>C:/Users/Est01/Downloads/Trabajo-Final/IMAGINEX-removebg-preview.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -64,7 +64,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>imagenes/smooth-stucco-wall_1194-7087.jpg</pixmap>
+    <pixmap>C:/Users/Est01/Downloads/Trabajo-Final/imagenes/smooth-stucco-wall_1194-7087.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -83,7 +83,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>imagenes/Picture_Health-removebg-preview.png</pixmap>
+    <pixmap>C:/Users/Est01/Downloads/Trabajo-Final/imagenes/Picture_Health-removebg-preview.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -102,7 +102,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>imagenes/IMAGINEX-removebg-preview.png</pixmap>
+    <pixmap>C:/Users/Est01/Downloads/Trabajo-Final/imagenes/IMAGINEX-removebg-preview.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -149,16 +149,16 @@ background-color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="text">
-    <string>Ampliar 3D</string>
+    <string>Visualizar 3D</string>
    </property>
   </widget>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>320</y>
+     <y>180</y>
      <width>621</width>
-     <height>181</height>
+     <height>321</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -166,7 +166,11 @@ background-color: rgb(255, 255, 255);</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QHBoxLayout" name="layout"/>
+     <layout class="QHBoxLayout" name="layout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -183,7 +187,7 @@ background-color: rgb(255, 255, 255);</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>imagenes/4246a8a59b9e8f9dbef2032ce607443a.png</pixmap>
+    <pixmap>C:/Users/Est01/Downloads/Trabajo-Final/imagenes/4246a8a59b9e8f9dbef2032ce607443a.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -192,30 +196,11 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>261</width>
-     <height>301</height>
+     <x>20</x>
+     <y>20</y>
+     <width>601</width>
+     <height>141</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>-30</y>
-     <width>150</width>
-     <height>150</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>../trabajo_final/Picture_Health-removebg-preview.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
@@ -231,35 +216,11 @@ background-color: rgb(255, 255, 255);</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../trabajo_final/IMAGINEX-removebg-preview.png</pixmap>
+    <pixmap>C:/Users/Est01/Downloads/trabajo_final/IMAGINEX-removebg-preview.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
-  </widget>
-  <widget class="QWidget" name="widget_2" native="true">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>0</y>
-     <width>331</width>
-     <height>311</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 0, 0);</string>
-   </property>
-   <widget class="QWidget" name="horizontalLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>311</width>
-      <height>291</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="layout_2"/>
-   </widget>
   </widget>
  </widget>
  <resources/>

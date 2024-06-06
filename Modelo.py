@@ -53,4 +53,5 @@ class Dicom():
             return False
 
 class Imagen3D:
-     pass
+  def __init__(self):
+    self.__RutaNifti = None

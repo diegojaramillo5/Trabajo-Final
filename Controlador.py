@@ -1,14 +1,12 @@
 from Modelo import Dicom, Imagen3D
-from Vista import VentanaPrincipal, VentanaRutaDCM
+from Vista import VentanaPrincipal
 from PyQt5.QtWidgets import QApplication
 import sys
 
 class Controlador(object):
-    def __init__(self, vista, vistaRuta, dicom, imagen3D):
+    def __init__(self, vista, dicom):
         self.__mi_vista = vista
-        self.__mi_vistaRuta = vistaRuta
         self.__mi_dicom = dicom
-        self.__mi_imagen3D = imagen3D
         
     def cargarDCM(self, ruta): 
         return self.__mi_dicom.cargarArchivoDCM(ruta)
@@ -22,24 +20,17 @@ class Controlador(object):
     def visualizarNii(self):
         return self.__mi_dicom.visualizarNifti()
 
-class Coordinador(object):
-    def __init__(self, usuario, contrasena):
-        self.__mi_usuario = usuario
-        self.__mi_contrasena = contrasena
+class Principal(object):
+    def __init__(self): 
+        self.__app = QApplication(sys.argv)
+        self.__mi_vista = VentanaPrincipal()
+        self.__mi_dicom = Dicom()
+        self.__mi_controlador = Controlador(self.__mi_vista, self.__mi_dicom)
+        self.__mi_vista.asignarControlador(self.__mi_controlador)
 
-# validar usuario
+    def main(self):
+        self.__mi_vista.show()
+        sys.exit(self.__app.exec_())  
 
-def main():
-    app = QApplication(sys.argv)
-    vista = VentanaPrincipal()
-    vistaRuta = VentanaRutaDCM()
-    dicom = Dicom()
-    imagen = Imagen3D()
-    controlador = Controlador(vista, vistaRuta, dicom, imagen)
-    vista.asignarControlador(controlador)
-    vistaRuta.asignarControlador(controlador)
-    vista.show()
-    sys.exit(app.exec_())
-
-if __name__ == '__main__':
-    main()
+p=Principal()
+p.main()
