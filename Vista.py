@@ -59,9 +59,12 @@ class VentanaMenu(QDialog):
         self.__ventana_padre=parent
         self.setup()
 
+    def asignarControlador(self, c):
+        self.__mi_controlador = c
+
     def setup(self):
         self.boton_imagenes.clicked.connect(self.rutaImagenes)
-        self.boton_nifti.clicked.connect(self.volverBoton)
+        self.boton_volver.clicked.connect(self.volverBoton)
         self.boton_salir.clicked.connect(lambda:self.close())
 
     def rutaImagenes(self):

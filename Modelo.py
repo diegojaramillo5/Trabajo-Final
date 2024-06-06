@@ -52,6 +52,5 @@ class Dicom():
           else:
             return False
 
-
 class Imagen3D:
      pass
