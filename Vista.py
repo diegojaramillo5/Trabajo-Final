@@ -6,8 +6,6 @@ from PyQt5.QtWidgets import QMainWindow, QDialog, QMessageBox, QLineEdit, QTable
 from PyQt5.QtGui import QRegExpValidator, QIntValidator
 from PyQt5.QtCore import  QRegExp, Qt
 from PyQt5.uic import loadUi
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
 
 class VentanaPrincipal(QMainWindow):
     def __init__(self):
@@ -137,74 +135,6 @@ class VentanaRutaNifti(QDialog):
     def volverBoton(self):
         self.__ventana_padre.show()
         self.hide()
-'''
-class VentanaImagenDCM(QDialog):
-    def __init__(self,parent=None):
-        super().__init__(parent)
-        loadUi("visualizar_info_3d.ui",self)
-        self.__ventana_padre=parent
-        self.setup()
-
-    def asignarControlador(self,c):
-        self.__mi_controlador = c
-
-    def setup(self):
-        self.boton_visualizar_nifti.clicked.connect(self.rutaImagenNifti)
-        self.boton_volver.clicked.connect(self.volverBoton)
-        self.tableView.verticalHeader().setVisible(False)
-        self.sc = MyGraphCanvas(self.widget, width=5, height=4, dpi=100)
-        self.layout.addWidget(self.sc)
-
-    def tabla(self):
-        self.ruta = self.nombre_dcm.text()
-        self.cargo = self.__mi_controlador.cargarDCM(self.ruta)
-        self.asigno = self.__mi_controlador.asignarInfo(self.cargo)
-        self.tableView.setRowCount(len(self.asigno))
-        self.tableView.setColumnCount(5)
-        columnas = ["Nombre", "ID", "Fecha", "Modalidad", "Descripción"]
-        columnLayout = ["Nombre", "ID", "Fecha", "Modalidad", "Descripción"]
-        self.tableView.setHorizontalHeaderLabels(columnas)
-        for row, usuario in enumerate(self.listaUsuarios):
-            for column in range(5):
-                item = QTableWidgetItem(usuario[columnLayout[column]])
-                self.tabla.setIten(row, column, item)
-                
-        self.tableView.setColumnWidth(0, 80)  
-        self.tableView.setColumnWidth(1, 110)  
-        self.tableView.setColumnWidth(2, 60)  
-        self.tableView.setColumnWidth(3, 60)  
-        self.tableView.setColumnWidth(4, 60)
-
-    def rutaImagenNifti(self):
-        self.visual = self.__mi_controlador.vizualizarNii()
-        malla = Volume(self.visual)
-        malla.mode(1).cmap("jet") 
-        plt = RayCastPlotter(malla, axes=7)
-        show(malla, zoom=1.2, bg="black", viewup="z").close() 
-    
-    def volverBoton(self):
-        self.__ventana_padre.show()
-        self.hide()
-
-class MyGraphCanvas(FigureCanvas):
-    #constructor
-    def __init__(self, parent= None,width=5, height=4, dpi=100):
-        
-        #se crea un objeto figura
-        self.fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = self.fig.add_subplot(111)        
-        #se inicializa la clase FigureCanvas con el objeto fig
-        FigureCanvas.__init__(self,self.fig)
-
-    def graficar_imagen(self, datos):
-        self.axes.clear()
-        self.axes.imshow(datos)
-        self.axes.figure.canvas.draw()
-    def graficar1(self,datos):
-        self.axes = self.fig.add_subplot(131)
-        self.axes.axis('off')
-        self.axes.imshow(datos)
-        self.axes.figure.canvas.draw()'''
 
 #sacamos la información de estas fuentes:
 #https://github.com/amine0110/vedo-tutorials/blob/main/visualization.py

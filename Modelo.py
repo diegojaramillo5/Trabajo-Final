@@ -51,7 +51,3 @@ class Dicom():
             return self.imagen
           else:
             return False
-
-class Imagen3D:
-  def __init__(self):
-    self.__RutaNifti = None
